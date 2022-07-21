@@ -1,0 +1,41 @@
+{% extends 'pages/_base.html' %}
+{% load static i18n utils %}
+
+{% block css %}
+  {{ block.super }}
+  <link rel="stylesheet" href="{% static 'pages/css/content_list.css' %}">
+{% endblock %}
+
+{% block page_content %}
+  <div class="px-sm-4 px-3 py-3">
+    <section class="title-section mb-4 d-flex justify-content-between">
+      <h3 class="title fs-4 mb-0">{% block content_title %}{% endblock %}</h3>
+      {% ordering paginator.object_list.model 'created_at' 'popularity' '-popularity' %}
+    </section>
+    <div class="row infinite-container">
+      {% for object in object_list %}
+        <div class="row-item infinite-item col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
+          {% include 'content/includes/item.html' with object=object %}
+        </div>
+      {% endfor %}
+    </div>
+    {% if object_list.has_next %}
+      {% if request.GET.ordering %}
+        <a class="infinite-more-link"
+           href="?ordering={{ request.GET.ordering }}&page={{ object_list.next_page_number }}"></a>
+      {% else %}
+        <a class="infinite-more-link" href="?page={{ object_list.next_page_number }}"></a>
+      {% endif %}
+    {% endif %}
+  </div>
+  <div class="loading infinite-loading pb-3" style="display: none">
+    <div class="spinner"></div>
+  </div>
+{% endblock %}
+
+{% block js %}
+  <script src="{% static 'lib/js/infinite-scroll.js' %}"></script>
+  <script>
+    new InfiniteScroll();
+  </script>
+{% endblock %}

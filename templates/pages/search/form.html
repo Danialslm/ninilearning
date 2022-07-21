@@ -1,0 +1,30 @@
+{% extends 'pages/_base.html' %}
+{% load static %}
+
+{% block css %}
+  {{ block.super }}
+  <link rel="stylesheet" href="{% static 'pages/css/search.css' %}">
+{% endblock %}
+
+{% block page_content %}
+  <div class="container pt-4 pt-sm-5">
+    <div class="search-form-wrapper mx-auto">
+      <form class="search-form position-relative">
+        <input type="text" class="w-100 n-input" placeholder="جستجو فیلم و سریال...">
+        <div class="clean position-absolute">
+          <i class="fas fa-times fs-5 p-2"></i>
+        </div>
+      </form>
+      <div class="search-results px-2">
+
+      </div>
+      <div class="loading" style="display: none">
+        <div class="spinner"></div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block js %}
+  <script src="{% static 'pages/js/search.js' %}"></script>
+{% endblock %}

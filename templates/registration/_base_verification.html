@@ -1,0 +1,30 @@
+{% extends 'registration/_base.html' %}
+{% load static widget_tweaks %}
+
+{% block form %}
+  <form method="post" id="verification-form">
+    {% csrf_token %}
+    <div class="input-group d-flex flex-column mb-3">
+      <label for="id_verification_code" class="form-label">{{ form.verification_code.label }}</label>
+      {% render_field form.verification_code placeholder='کد تایید' class='n-input' %}
+      {{ form.verification_code.errors }}
+    </div>
+    <div class="row">
+      <div class="col-12 d-grid gap-2">
+        <button type="submit" class="btn btn-primary">تایید</button>
+        <button
+          class="btn btn-primary"
+          id="resend-code"
+          {% if request.session.verification_retry_after %}
+          data-retry-after="{{ request.session.verification_retry_after }}"
+          {% endif %}
+        >ارسال دوباره کد
+        </button>
+      </div>
+    </div>
+  </form>
+{% endblock %}
+
+{% block js %}
+  <script src="{% static 'registration/js/verificationCode.js' %}"></script>
+{% endblock %}

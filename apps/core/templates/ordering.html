@@ -1,0 +1,20 @@
+{% load i18n %}
+<div class="filters-section">
+  <div class="filter position-relative">
+      <span class="btn btn-outline-secondary">
+        مرتب سازی
+        <i class="fas fa-angle-down align-middle ms-1"></i>
+      </span>
+    <ul class="filter-options mb-0 rounded-1 list-unstyled position-absolute">
+      <li><a href="?">پیشفرض</a></li>
+      {% for field in fields %}
+        <li><a href="?ordering={% if field.desc %}-{% endif %}{{ field.field_cls.name }}">
+          {{ field.field_cls.verbose_name }}
+          {% if field.desc %}
+            ({% trans 'descending' %})
+          {% endif %}
+        </a></li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>

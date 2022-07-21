@@ -1,0 +1,38 @@
+{% extends 'content/detail/_base.html' %}
+{% load utils %}
+
+{% block content_header %}
+  {% include 'content/includes/header.html' %}
+{% endblock %}
+
+{% block episodes %}
+  <div class="episodes">
+    <h4 class="title mb-4">قسمت‌های {{ object.pe_name }}</h4>
+    <div class="seasons">
+      <ul class="mb-0 pb-3 list-unstyled d-flex overflow-auto w-100" style="white-space: nowrap">
+        {% for season in object.seasons.all %}
+          <li class="btn btn-outline-primary rounded season me-3{% if season.season_number == 1 %} selected-season{% endif %}">
+            <a role="button" class="text-decoration-none"
+               data-url="{% url 'content:season_episodes' object.slug season.season_number %}">
+              فصل {{ season.season_number|digit_to_word }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+      <div class="episodes-count-wrapper text-center mb-3 position-relative">
+        <span class="px-3">
+          <span class="episodes-count"></span>
+          قسمت
+        </span>
+      </div>
+    </div>
+    <div class="episodes-wrapper position-relative">
+      <div class="loading" style="display: none">
+        <span class="spinner"></span>
+      </div>
+      <div class="episodes-container">
+        {% include 'content/detail/episode_list.html' with episodes=first_season_episodes %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

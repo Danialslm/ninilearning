@@ -1,0 +1,58 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block meta_title %}اشتراک{% endblock %}
+
+{% block css %}
+  <link rel="stylesheet" href="{% static 'subscription/css/base.css' %}">
+{% endblock %}
+
+{% block content %}
+  <header class="header p-2 d-flex justify-content-center">
+    <a href="" class="logo d-block">
+      <img class="w-100" src="{% static 'global/images/logo.png' %}" alt="نینی لرنینگ">
+    </a>
+  </header>
+  <main>
+    <div class="container py-3">
+      <div class="plans-box border rounded mx-auto p-2 px-md-4">
+        {% for object in object_list %}
+          <a href=""
+             class="plan text-dark text-decoration-none border rounded-1 d-flex justify-content-between p-2 my-2">
+            <div class="plan-info">
+              <h3>اشتراک {{ plan.plan_time }} ماهه</h3>
+              <div class="price {% if plan.discounted_price %}discounted{% endif %}">
+                <span class="original-price position-relative">{{ plan.price }} تومان</span>
+                {% if plan.discounted_price %}
+                  <span class="discounted-price ms-4">
+                    {{ plan.discounted_price }} تومان
+                  </span>
+                {% endif %}
+              </div>
+            </div>
+            <i class="fas fa-chevron-circle-left align-self-center"></i>
+          </a>
+        {% endfor %}
+        <div class="discount-form mt-4 rounded">
+          <h3 class="m-0 d-flex justify-content-between px-2 py-3 border rounded-1">
+            <span>
+              <i class="fas fa-percent me-1 p-2 rounded-circle"></i>
+              کد تخفیف
+            </span>
+            <i class="fas fa-chevron-left align-self-center"></i>
+          </h3>
+          <form class="p-4" style="display: none">
+            <div class="input-group mb-3">
+              <input type="text" class="n-input w-100" placeholder="کد خود را وارد کنید">
+            </div>
+            <button type="submit" class="btn btn-primary w-100">تایید کد</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+{% endblock %}
+
+{% block js %}
+  <script src="{% static 'subscription/js/plans.js' %}"></script>
+{% endblock %}

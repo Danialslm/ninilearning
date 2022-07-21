@@ -1,0 +1,23 @@
+{% extends 'registration/_base.html' %}
+{% load static widget_tweaks %}
+
+{% block meta_title %}ثبت نام{% endblock %}
+
+{% block form %}
+  <form method="post" id="signup-form">
+    {% csrf_token %}
+    <div class="input-group flex-column mb-3">
+      <label for="id_username" class="form-label">{{ form.phone_number.label }}</label>
+      {% render_field form.phone_number placeholder=form.phone_number.label class='n-input' %}
+      {{ form.phone_number.errors }}
+    </div>
+    <div class="row">
+      <div class="col-12 d-grid gap-1">
+        <button type="submit" class="btn btn-primary">ارسال کد</button>
+      </div>
+    </div>
+    <div class="form-links d-flex flex-column mt-2">
+      <a href="{% url 'users:login' %}" class="mt-2">قبلا ثبت نام کردم</a>
+    </div>
+  </form>
+{% endblock %}

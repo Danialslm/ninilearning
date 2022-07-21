@@ -1,0 +1,41 @@
+{% for object in object_list %}
+  <a href="{{ object.get_absolute_url }}" class="object mb-5 text-decoration-none text-dark d-block">
+    <div class="row">
+      <div class="col-4 col-md-2">
+        <div class="poster position-relative">
+          <img class="w-100 rounded-1" src="{{ object.small_poster.url }}" alt="{{ object.pe_name }}">
+          <i class="fas fa-play-circle position-absolute text-white"></i>
+        </div>
+      </div>
+      <div class="col-8 col-md-10 d-flex flex-column justify-content-between">
+        <div class="top">
+          <div class="title mb-2 d-flex justify-content-between">
+            <div>
+              <h3 class="pe_name">{{ object.pe_name }}</h3>
+              <h5 class="mb-0 en_name">{{ object.en_name }}</h5>
+              <div class="infos mt-2">
+                {{ object.genres.all|join:'، ' }}
+                -
+                {{ object.country }}
+              </div>
+            </div>
+            <span class="popularity">
+            <i class="fas fa-thumbs-up me-1"></i>
+            {{ object.popularity }} %
+          </span>
+          </div>
+          <div class="mb-2 director d-none d-sm-block">{{ object.director }}</div>
+        </div>
+        <div class="bottom">
+          <p class="description">{{ object.description }}</p>
+        </div>
+      </div>
+    </div>
+  </a>
+{% empty %}
+  {% if request.GET.query %}
+    <h4 class="text-center text-secondary fs-4">
+      نتیجه ای یافت نشد.
+    </h4>
+  {% endif %}
+{% endfor %}

@@ -1,0 +1,25 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block css %}
+  <link rel="stylesheet" href="{% static 'registration/css/base.css' %}">
+{% endblock %}
+
+{% block content %}
+  <main id="main" class="d-flex w-100 min-vh-100 d-flex align-items-center justify-content-center">
+    <div class="container">
+      <div class="col-12 col-xl-4 col-md-7 offset-md-3 offset-xl-4">
+        <div class="logo text-center mb-4">
+          <a href="{% url 'main:home' %}">
+            <img src="{% static 'global/images/logo.png' %}" alt="نینی‌لرنینگ">
+          </a>
+        </div>
+        <div class="form p-3">
+          {% include 'includes/messages.html' with classes='text-center mb-2' %}
+          {{ form.non_field_errors }}
+          {% block form %}{% endblock form %}
+        </div>
+      </div>
+    </div>
+  </main>
+{% endblock %}

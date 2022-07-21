@@ -1,0 +1,23 @@
+{% extends 'dashboard/_base.html' %}
+{% load static %}
+
+{% block meta_title %}نشان شده‌ها{% endblock %}
+
+{% block css %}
+  {{ block.super }}
+  <link rel="stylesheet" href="{% static 'content/css/item.css' %}">
+{% endblock %}
+
+{% block dashboard_content %}
+  <div class="content-box rounded p-md-3">
+    <div class="py-3">
+      <div class="row">
+        {% for object in object_list %}
+          <div class="col-6 col-sm-4 col-md-3 mb-3">
+            {% include 'content/includes/item.html' with object=object %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

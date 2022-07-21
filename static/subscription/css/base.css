@@ -1,0 +1,90 @@
+.header .logo {
+    width: 170px;
+}
+
+.plans-box {
+    max-width: 600px;
+}
+
+.plan {
+    background-color: var(--bs-gray-100);
+    color: var(--bs-dark);
+    transition: .2s;
+}
+
+.plan:hover {
+    background-color: #19ab56;
+    border-color: #19ab56 !important;
+}
+
+.plan:hover,
+.plan:hover .price.discounted .original-price,
+.plan:hover .price .discounted-price,
+.plan:hover i {
+    color: #ffffff !important;
+}
+
+.plan:hover .price.discounted .original-price:after {
+    background-color: #ffffff;
+}
+
+.plan-info h3 {
+    font-size: .9rem;
+    font-weight: bold;
+}
+
+.price.discounted .original-price {
+    color: var(--bs-gray-600);
+}
+
+.price.discounted .original-price:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 200%;
+    height: 1px;
+    top: 45%;
+    background-color: var(--bs-gray);
+}
+
+.price .discounted-price {
+    color: #19ab56;
+}
+
+.plan i {
+    color: #19ab56;
+    font-size: 1rem;
+}
+
+.discount-form {
+    background-color: var(--bs-gray-100);
+}
+
+.discount-form h3 {
+    font-size: .9rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.discount-form h3 i {
+    font-size: 1rem;
+    color: #19ab56;
+    transition: .2s;
+}
+
+.discount-form h3 i.rotate-down {
+    transform: rotate(-90deg);
+}
+
+.discount-form h3 span i {
+    color: var(--bs-gray-400);
+    background-color: var(--bs-gray-200);
+}
+
+
+@media only screen and (min-width: 768px) {
+    .plan i {
+        font-size: 1.3rem;
+    }
+}

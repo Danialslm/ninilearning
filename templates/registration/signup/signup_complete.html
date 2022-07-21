@@ -1,0 +1,44 @@
+ class='n-input'{% extends 'registration/_base.html' %}
+{% load static widget_tweaks %}
+
+{% block meta_title %}ثبت نام{% endblock %}
+
+{% block css %}
+  {{ block.super }}
+  <style>
+      .help-text ul {
+          padding-right: 0;
+          list-style: none;
+          font-size: .9rem;
+      }
+  </style>
+{% endblock %}
+
+{% block form %}
+  <form method="post">
+    {% csrf_token %}
+    <div class="input-group d-flex flex-column mb-3">
+      <label for="id_first_name" class="form-label">{{ form.first_name.label }}</label>
+      {% render_field form.first_name placeholder=form.first_name.label class='n-input' %}
+      {{ form.first_name.errors }}
+    </div>
+    <div class="input-group d-flex flex-column mb-3">
+      <label for="id_last_name" class="form-label">{{ form.last_name.label }}</label>
+      {% render_field form.last_name placeholder=form.last_name.label class='n-input' %}
+      {{ form.last_name.errors }}
+    </div>
+    <div class="input-group d-flex flex-column mb-3">
+      <label for="id_password" class="form-label">{{ form.password.label }}</label>
+      {% render_field form.password placeholder=form.password.label class='n-input' %}
+      {{ form.password.errors }}
+      <div class="help-text text-secondary mt-2 ps-1">
+        {{ form.password.help_text }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 d-grid gap-1">
+        <button type="submit" class="btn btn-primary">ذخیره</button>
+      </div>
+    </div>
+  </form>
+{% endblock %}

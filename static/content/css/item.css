@@ -1,0 +1,39 @@
+.item .overlay {
+    background-color: rgba(26, 26, 26, .7);
+    opacity: 0;
+    inset: 0;
+    transition: opacity .2s;
+}
+
+.item:hover .overlay {
+    opacity: 1;
+}
+
+.item .infos {
+    bottom: 10px;
+    right: 5px;
+    z-index: 1;
+    font-size: .8rem;
+    opacity: 0;
+    transition: opacity .2s;
+}
+
+.item:hover .infos {
+    opacity: 1;
+}
+
+.item .badges .badge {
+    all: unset;
+    background-color: rgba(255, 255, 255, .2);
+    padding: 0;
+}
+
+.item .badges .badge .icon {
+    background-color: rgba(255, 255, 255, .1);
+    border-top-right-radius: var(--bs-border-radius-pill);
+    border-bottom-right-radius: var(--bs-border-radius-pill);
+}
+
+.item .badges .badge .icon i {
+    font-size: .8rem;
+}

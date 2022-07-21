@@ -1,0 +1,46 @@
+@import "/static/content/css/item.css";
+
+.slider {
+    height: 45vh;
+}
+
+.slider .slide-image {
+    background: var(--mobile-img) no-repeat center/cover;
+}
+
+.inner-content {
+    bottom: 30px;
+    right: 15px;
+}
+
+.inner-content .intro-img {
+    width: 120px;
+}
+
+.inner-content h3 {
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.collection h3 {
+    font-size: 1.2rem;
+}
+
+@media only screen and (min-width: 768px) {
+    .slider {
+        height: 60vh;
+    }
+
+    .slider .slide-image {
+        background-image: var(--desktop-img);
+    }
+
+    .inner-content {
+        bottom: 50px;
+        right: 70px;
+    }
+
+    .inner-content .intro-img {
+        width: 200px;
+    }
+}

@@ -1,0 +1,122 @@
+{% extends 'pages/_base.html' %}
+{% load static %}
+
+{% block css %}
+  {{ block.super }}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.4.1/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="{% static 'pages/css/home.css' %}">
+{% endblock %}
+
+{% block page_content %}
+  <section class="slider">
+    <div class="swiper h-100 h-sm-auto">
+      <div class="swiper-wrapper">
+        {% for slide in slides %}
+          <div class="swiper-slide user-select-none">
+            <div class="slide-image h-100 h-sm-auto position-relative"
+                 style="--desktop-img: url({{ slide.desktop_image.url }});--mobile-img: url({{ slide.mobile_image.url }})"
+            >
+              <div class="inner-content position-absolute btn-info">
+                {% if slide.intro_image %}
+                  <div class="intro-img mb-3">
+                    <img src="{{ slide.intro_image.url }}" alt="{{ slide.title }}" class="w-100">
+                  </div>
+                {% endif %}
+                <h3>{{ slide.title }}</h3>
+                <a href="{{ slide.referral_link }}" class="btn btn-primary">{{ slide.referral_link_text }}</a>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  <div class="container-fluid mt-3 infinite-container">
+    {% if recent %}
+      <div class="collection mb-5">
+        <h3 class="mb-3">
+          <a href="{% url 'main:recent' %}" class="text-decoration-none text-dark">
+            جدیدترین ها
+          </a>
+        </h3>
+        <div class="swiper">
+          <div class="swiper-wrapper">
+            {% for object in recent %}
+              <div class="swiper-slide">
+                {% include 'content/includes/item.html' with object=object %}
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    {% endif %}
+    {% if popular %}
+      <div class="collection mb-5">
+        <h3 class="mb-3">
+          <a href="{% url 'main:popular' %}" class="text-decoration-none text-dark">
+            محبوب‌ترین ها
+          </a>
+        </h3>
+        <div class="swiper">
+          <div class="swiper-wrapper">
+            {% for object in popular %}
+              <div class="swiper-slide">
+                {% include 'content/includes/item.html' with object=object %}
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    {% endif %}
+    {% include 'pages/collection_list.html' %}
+  </div>
+  <div class="loading infinite-loading pb-3" style="display: none">
+    <div class="spinner"></div>
+  </div>
+{% endblock %}
+
+{% block js %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.4.1/swiper-bundle.min.js"></script>
+  <script src="{% static 'lib/js/infinite-scroll.js' %}"></script>
+  <script>
+    new Swiper('.slider .swiper', {
+      speed: 400,
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+    });
+
+    const initializeCollectionSlider = (element) => {
+      new Swiper(element, {
+        speed: 400,
+        slidesPerView: 2.5,
+        spaceBetween: 10,
+        breakpoints: {
+          576: {
+            slidesPerView: 3.5,
+          },
+          768: {
+            slidesPerView: 4.5,
+          },
+          992: {
+            slidesPerView: 5.5,
+          },
+          1024: {
+            slidesPerView: 8,
+          },
+        },
+      });
+    }
+    initializeCollectionSlider('.collection .swiper');
+
+    new InfiniteScroll({
+      afterPageLoad(items) {
+        items.forEach((item) => {
+          initializeCollectionSlider(item.querySelector('.swiper'));
+        });
+      },
+    });
+  </script>
+{% endblock %}

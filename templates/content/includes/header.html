@@ -1,0 +1,129 @@
+<section class="content-header">
+  <header class="position-relative" style="--large-poster-url: url({{ object.large_poster.url }})">
+    <div class="overlay"></div>
+    <div class="container py-3 pt-md-4 position-relative text-white" style="z-index: 1">
+      <div class="row">
+        <div class="col-12 col-lg-3 col-md-4 mb-3">
+          <div class="poster mx-auto">
+            <img class="w-100 rounded-1" src="{{ object.small_poster.url }}" alt="{{ object.pe_name }}">
+          </div>
+        </div>
+        <div class="col-12 col-lg-9 col-md-8 text-center text-md-start">
+          <div class="title mb-3">
+            <h3 class="pe-name mb-3 mb-md-4">
+              {{ object.pe_name }}
+              <i class="fas fa-chevron-circle-down align-middle ms-1 d-md-none"></i>
+            </h3>
+            <h4 class="en-name mb-0">{{ object.en_name }}</h4>
+          </div>
+          <div class="d-inline-block mb-4">
+            <div class="popularity d-flex justify-content-center align-items-center popularity rounded-pill">
+              <span class="icon pt-1 px-2 d-inline-block ">
+                <i class="fas fa-thumbs-up"></i>
+              </span>
+              <span class="value pt-1 px-2 d-inline-block" dir="ltr">
+                ({{ object.total_votes|floatformat:'g' }}) {{ object.popularity }} %
+              </span>
+            </div>
+          </div>
+          <div class="age-range text-warning my-4">
+            <i class="fas fa-tv align-middle me-1"></i>
+            مناسب برای {{ object.age_range }}
+          </div>
+          <div class="infos pb-3 d-md-block" style="display: none;">
+            <div class="extra mb-3">
+              {{ object.country }}
+              -
+              {{ object.duration }}
+              {% if object.pe_subtitle or object.en_subtitle %}
+                -
+                زیرنویس دارد
+              {% endif %}
+            </div>
+            <div class="genres mb-3">
+              {% for genre in object.genres.all %}
+                <a href="{{ genre.get_absolute_url }}"
+                   class="py-1 px-2 d-inline-block text-decoration-none text-white rounded-pill bg-secondary">
+                  {{ genre.genre }}
+                </a>
+              {% endfor %}
+            </div>
+          </div>
+          <div class="actions mb-3 d-md-none">
+            <div class="action bookmark {% if bookmarked %}bookmarked{% endif %}"
+                 data-url="{% url 'content:bookmark' object.slug %}">
+              <i class="fas fa-bookmark mt-1"></i>
+              <span class="d-block">
+                    نشان
+                {% if bookmarked %}
+                  شده
+                {% else %}
+                  کردن
+                {% endif %}
+                  </span>
+            </div>
+            <div class="action like {% if liked %}liked{% endif %}"
+                 data-url="{% url 'votes:vote' object.slug %}?vote=like">
+              <i class="fas fa-thumbs-up mt-1"></i>
+              <span class="d-block">پسندیدم</span>
+            </div>
+            <div class="action dislike {% if disliked %}disliked{% endif %}"
+                 data-url="{% url 'votes:vote' object.slug %}?vote=dislike">
+              <i class="fas fa-thumbs-down mt-1"></i>
+              <span class="d-block">نپسندیدم</span>
+            </div>
+          </div>
+          <div class="btn d-block d-md-none px-3 d-sm-inline-block btn-primary rounded-pill play">
+            <i class="fas fa-play align-middle"></i>
+            {% if object.is_vip %}
+              {% if user.is_vip %}
+                تماشا
+              {% else %}
+                خرید اشتراک
+              {% endif %}
+            {% else %}
+              تماشا
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      <div class="d-none d-md-flex pt-3 justify-content-between align-items-center"
+           style="border-top: 1px solid rgba(255,255,255,.25)">
+        <div class="actions">
+          <div class="action bookmark {% if bookmarked %}bookmarked{% endif %}"
+               data-url="{% url 'content:bookmark' object.slug %}">
+            <i class="fas fa-bookmark align-middle me-1"></i>
+            <span style="font-size: .8rem">
+                  نشان
+              {% if bookmarked %}
+                شده
+              {% else %}
+                کردن
+              {% endif %}
+                </span>
+          </div>
+          <div class="action like {% if liked %}liked{% endif %}"
+               data-url="{% url 'votes:vote' object.slug %}?vote=like">
+            <i class="fas fa-thumbs-up"></i>
+          </div>
+          <div class="action dislike {% if disliked %}disliked{% endif %}"
+               data-url="{% url 'votes:vote' object.slug %}?vote=dislike">
+            <i class="fas fa-thumbs-down"></i>
+          </div>
+        </div>
+        <a href="" class="btn rounded-pill btn-primary px-3">
+          <i class="fas fa-play"></i>
+          {% if object.is_vip %}
+            {% if user.is_vip %}
+              تماشا
+            {% else %}
+              خرید اشتراک
+            {% endif %}
+          {% else %}
+            تماشا
+          {% endif %}
+        </a>
+      </div>
+    </div>
+  </header>
+</section>

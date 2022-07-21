@@ -1,0 +1,72 @@
+{% extends 'dashboard/_base.html' %}
+{% load utils %}
+{% load static %}
+
+{% block meta_title %}دستگاه ها{% endblock %}
+
+{% block css %}
+  {{ block.super }}
+  <style>
+      .objects td {
+          padding-top: 1rem;
+          padding-bottom: 1rem;
+      }
+  </style>
+{% endblock %}
+
+{% block dashboard_content %}
+  <section class="content-box p-2 rounded p-md-3">
+    <p>حساب کاربری شما در دستگاه‌های زیر فعال است.</p>
+    <div class="objects overflow-auto">
+      <table class="table" style="white-space: nowrap">
+        <thead>
+        <tr>
+          <th scope="col">دستگاه</th>
+          <th scope="col">آخرین ورود</th>
+          <th scope="col">آدرس ای پی</th>
+          <th scope="col">عملیات</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for object in object_list %}
+          <tr>
+            <td>{{ object.device_name }}</td>
+            <td>{{ object.last_login|jdate:'%H:%M:%S %Y/%m/%d' }}</td>
+            <td>{{ object.ip_address }}</td>
+            <td class="text-center">
+              {% if object.session_key != request.session.session_key %}
+                <button class="revoke-session btn btn-danger" data-session-key="{{ object.session_key }}">خروج</button>
+              {% else %}
+                -
+              {% endif %}
+            </td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+{% endblock dashboard_content %}
+
+{% block js %}
+  {{ block.super }}
+  <script>
+    $('.revoke-session').click((e) => {
+      const sessionKey = $(e.currentTarget).data('session-key');
+
+      $.ajax({
+        url: `{% url 'users:revoke_session' %}?session_key=${sessionKey}`,
+        method: 'delete',
+        headers: {
+          'X-CSRFToken': '{{ csrf_token }}',
+        },
+        success(res) {
+          $(e.currentTarget).parents('tr').remove();
+        },
+        error(err) {
+          ajaxErrorToast(err.status, 'خطایی هنگام خروج دستگاه از حساب کاربری به وجود آمد. لطفا بعدا امتحان کنید.');
+        },
+      });
+    })
+  </script>
+{% endblock js %}

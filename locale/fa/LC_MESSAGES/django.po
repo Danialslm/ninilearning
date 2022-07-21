@@ -1,0 +1,326 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-07-12 00:34+0430\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "serial"
+msgstr "سریال"
+
+msgid "Posters"
+msgstr "پوسترها"
+
+msgid "Further information"
+msgstr "اطلاعات تکمیلی"
+
+msgid "poster"
+msgstr "پوستر"
+
+msgid "genres"
+msgstr "ژانرها"
+
+msgid "Video"
+msgstr "ویدئو"
+
+msgid "The object bookmarked."
+msgstr "شیء نشان شد."
+
+msgid "Object bookmark removed."
+msgstr "نشان شیء حذف شد"
+
+msgid "content"
+msgstr "محتوا"
+
+msgid "Video format is invalid. the valid video formats are "
+msgstr "فرمت ویدئو نامعتبر است. فرمت های معتبر عبارت‌اند از "
+
+msgid "genre"
+msgstr "ژانر"
+
+msgid "likes count"
+msgstr "تعداد لایک ها"
+
+msgid "dislikes count"
+msgstr "تعداد دیسلایک ها"
+
+msgid "popularity"
+msgstr "محبوبیت"
+
+msgid "movie"
+msgstr "فیلم"
+
+msgid "persian name"
+msgstr "نام فارسی"
+
+msgid "english name"
+msgstr "نام انگلیسی"
+
+msgid "slug"
+msgstr "اسلاگ"
+
+msgid "age range"
+msgstr "محدوده سنی"
+
+msgid "country"
+msgstr "کشور"
+
+msgid "Product of which country?"
+msgstr "محصول کدام کشور؟"
+
+msgid "description"
+msgstr "توضیحات"
+
+msgid "small poster"
+msgstr "پوستر کوچک"
+
+msgid "large poster"
+msgstr "پوستر بزرگ"
+
+msgid "duration"
+msgstr "مدت زمان"
+
+msgid "resolution"
+msgstr "وضوح"
+
+msgid "suggestions"
+msgstr "پیشنهادها"
+
+msgid "content type"
+msgstr "نوع محتوا"
+
+msgid "video"
+msgstr "ویدئو"
+
+msgid "persian subtitle"
+msgstr "زیرنویس فارسی"
+
+msgid "english subtitle"
+msgstr "زیرنویس انگلیسی"
+
+msgid "vip"
+msgstr "ویژه"
+
+msgid "created date"
+msgstr "تاریخ ساخت"
+
+msgid "series"
+msgstr "سریال ها"
+
+msgid "season"
+msgstr "فصل"
+
+msgid "seasons"
+msgstr "فصل ها"
+
+msgid "title"
+msgstr "عنوان"
+
+msgid "episode number"
+msgstr "شماره قسمت"
+
+msgid "episode"
+msgstr "قسمت"
+
+msgid "episodes"
+msgstr "قسمت ها"
+
+msgid "movies"
+msgstr "فیلم ها"
+
+msgid "Your information updated successfully."
+msgstr "اطلاعات شما با موفقیت بروز شد."
+
+msgid "slide image"
+msgstr "تصویر اسلاید"
+
+msgid "referral link"
+msgstr "لینک ارجاع"
+
+msgid "items count"
+msgstr "تعداد اتیم ها"
+
+msgid "main"
+msgstr "اصلی"
+
+msgid "The collection should have a serial or movie at least."
+msgstr "مجموعه باید حداقل یک سریال یا فیلم داشته باشد."
+
+msgid "slide title"
+msgstr "عنوان اسلاید"
+
+msgid "referral link text"
+msgstr "متن لینک ارجاع"
+
+msgid "slide image (desktop)"
+msgstr "تصویر اسلاید (دیسکتاپ)"
+
+msgid "slide image (mobile)"
+msgstr "تصویر اسلاید (موبایل)"
+
+msgid "slide image (intro)"
+msgstr "تصویر اسلاید (اینترو)"
+
+msgid "slide"
+msgstr "اسلاید"
+
+msgid "slides"
+msgstr "اسلاید ها"
+
+msgid "contents"
+msgstr "محتویات"
+
+msgid "collection"
+msgstr "مجموعه"
+
+msgid "collections"
+msgstr "مجموعه ها"
+
+msgid "subscription"
+msgstr "اشتراک"
+
+msgid "plan time"
+msgstr "مدت زمان پلن"
+
+msgid "Plan time (month)"
+msgstr "مدت زمان پلن (ماه)"
+
+msgid "price"
+msgstr "قیمت"
+
+msgid "Enter price in toman."
+msgstr "قیمت را به تومان وارد کنید."
+
+msgid "discounted price"
+msgstr "قیمت تخفیف خورده"
+
+msgid "Enter discounted price in toman."
+msgstr "قیمت تخفیف خورده را به تومان وارد کنید."
+
+msgid "plan"
+msgstr "پلن"
+
+msgid "plans"
+msgstr "پلن ها"
+
+msgid "code"
+msgstr "کد"
+
+msgid "discount code"
+msgstr "کد تخفیف"
+
+msgid "discount codes"
+msgstr "کد های تخفیف"
+
+msgid "Personal info"
+msgstr "اطلاعات شخصی"
+
+msgid "Permissions"
+msgstr "دسترسی‌ها"
+
+msgid "Important dates"
+msgstr "تاریخ‌های مهم"
+
+msgid "The session does not have required credentials."
+msgstr "سشن اطلاعات لازم را ندارد."
+
+msgid "The verification code sent."
+msgstr "کد تایید ارسال شد."
+
+msgid "users"
+msgstr "کاربران"
+
+#, python-format
+msgid ""
+"Any user with this %(username)s and password not found. Note that password "
+"may be case-sensitive."
+msgstr ""
+"کاربری با این %(username)s و گذرواژه پیدا نشد. توجه داشته باشید که گذرواژه "
+"ممکن است به حروف بزرگ و کوچک حساس باشد."
+
+msgid "This account is inactive."
+msgstr "این حساب کاربری غیرفعال است."
+
+msgid "Phone number"
+msgstr "شماره تلفن"
+
+msgid "A user with this phone number already exist."
+msgstr "کاربری با این شماره تلفن از قبل وجود دارد."
+
+msgid "First name"
+msgstr "نام"
+
+msgid "Last name"
+msgstr "نام خانوادگی"
+
+msgid "Password"
+msgstr "گذرواژه"
+
+msgid "Any user with this phone number not found."
+msgstr "کاربری با این شماره تلفن یافت نشد."
+
+msgid "The verification code is invalid. Note that you use English numbers."
+msgstr ""
+"کد تایید نامعتبر است. توجه داشته باشید که از اعداد انگلیسی استفاده میکنید."
+
+msgid "Verification code"
+msgstr "کد تایید"
+
+msgid "The verification code is invalid or expired."
+msgstr "کد تایید نامعتبر یا منقضی شده است."
+
+msgid "The phone number is invalid. Note that use English numbers."
+msgstr ""
+"شماره تلفن نامعتبر است. توجه داشته باشید که از اعداد انگلیسی استفاده کنید."
+
+msgid "first name"
+msgstr "نام"
+
+msgid "last name"
+msgstr "نام خانوادگی"
+
+msgid "phone number"
+msgstr "شماره تلفن"
+
+msgid "vip date"
+msgstr "تاریخ ویژه"
+
+msgid "bookmarks"
+msgstr "نشان ها"
+
+msgid "user"
+msgstr "کاربر"
+
+msgid "ip address"
+msgstr "ادرس ای پی"
+
+msgid "device"
+msgstr "دستگاه"
+
+msgid "last login"
+msgstr "آخرین ورود"
+
+msgid "devices"
+msgstr "دستگاه ها"
+
+msgid "The number of devices logged into this account has been maximized."
+msgstr "تعداد دستگاه های وارد شده به این حساب به حداکثر رسیده است."
+
+msgid "Your password was changed successfully."
+msgstr "گذرواژه شما با موفقیت تغییر یافت."
+
+msgid "Your new password has been set. You can login now."
+msgstr "گذرواژه شما تنظیم شد. حالا میتوانید وارد شوید."

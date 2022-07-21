@@ -1,0 +1,22 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block meta_title %}داشبورد{% endblock %}
+
+{% block css %}
+  <link rel="stylesheet" href="{% static 'global/css/header.css' %}">
+  <link rel="stylesheet" href="{% static 'dashboard/css/base.css' %}">
+{% endblock %}
+
+{% block content %}
+  {% include 'includes/header.html' %}
+
+  <main id="main" class="space-from-header">
+    <div class="container pt-5" style="max-width: 900px">
+      <div class="dashboard">
+        {% include 'dashboard/includes/dashboard_navigation.html' %}
+        {% block dashboard_content %}{% endblock dashboard_content %}
+      </div>
+    </div>
+  </main>
+{% endblock content %}

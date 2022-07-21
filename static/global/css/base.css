@@ -1,0 +1,101 @@
+@import url(fonts.css);
+
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "IRANSans_FaNum", Roboto, sans-serif;
+    font-size: .8rem;
+}
+
+.btn {
+    font-size: .8rem;
+}
+
+.btn-primary {
+    --bs-btn-bg: var(--bs-cyan);
+    --bs-btn-border-color: var(--bs-cyan);
+    --bs-btn-hover-bg: #00d6ff;
+    --bs-btn-hover-border-color: #00d6ff;
+    --bs-btn-active-bg: #06b5d5;
+    --bs-btn-active-border-color: #06b5d5;
+    --bs-btn-disabled-bg: #36d7f8;
+    --bs-btn-disabled-border-color: #36d7f8;
+    --bs-btn-focus-shadow-rgb: 54, 215, 248;
+}
+
+
+.btn-outline-primary {
+    --bs-btn-color: var(--bs-cyan);
+    --bs-btn-border-color: var(--bs-cyan);
+    --bs-btn-hover-color: #ffffff;
+    --bs-btn-hover-bg: var(--bs-cyan);
+    --bs-btn-hover-border-color: #00d6ff;
+    --bs-btn-focus-shadow-rgb: 54, 215, 248;
+    --bs-btn-active-color: #ffffff;
+    --bs-btn-active-bg: #06b5d5;
+    --bs-btn-active-border-color: #06b5d5;
+    --bs-btn-disabled-color: #36d7f8;
+}
+
+.n-input {
+    border-radius: 5px !important;
+    border: none;
+    background-color: var(--bs-gray-200);
+    padding: .5rem;
+    color: var(--bs-gray-700);
+    font-size: .9rem;
+}
+
+.n-input:-webkit-autofill {
+    background: var(--bs-gray-200);
+}
+
+.n-input:focus {
+    outline: none;
+}
+
+.loading {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.loading .spinner {
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid var(--bs-cyan);
+    border-radius: var(--bs-border-radius-pill);
+    width: 30px;
+    height: 30px;
+    animation: loading-spinner 1s linear infinite;
+}
+
+main.space-from-header {
+    padding-top: 85px;
+}
+
+@keyframes loading-spinner {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@media only screen and (min-width: 576px) {
+    main.space-from-header {
+        padding-top: 56px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    body, .btn {
+        font-size: 1rem;
+    }
+}

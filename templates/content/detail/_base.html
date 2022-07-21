@@ -1,0 +1,56 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block meta_title %}{{ object.pe_name }}{% endblock %}
+
+{% block css %}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.4.1/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="{% static 'global/css/header.css' %}">
+  <link rel="stylesheet" href="{% static 'content/css/detail.css' %}">
+{% endblock %}
+
+{% block content %}
+  {% include 'includes/header.html' %}
+
+  <main id="main" class="space-from-header">
+    {% block content_header %}{% endblock %}
+
+    <div class="container py-4">
+      <div class="description mb-5">
+        <h4 class="title mb-3 fw-bold">
+          درباره {{ object.pe_name }}
+        </h4>
+        <p>{{ object.description }}</p>
+      </div>
+      {% block episodes %}{% endblock %}
+      {% with suggestions=object.suggestions.all %}
+        {% if suggestions %}
+          <div class="suggestions p-3">
+            <h4 class="suggestions-title mb-3 fw-bold">
+              پیشنهادی
+            </h4>
+            <div class="suggestions-wrapper position-relative px-3">
+              <div class="swiper">
+                <div class="swiper-wrapper">
+                  {% for suggestion in suggestions %}
+                    <div class="suggestion mb-3">
+                      {% include 'content/includes/item.html' with object=suggestion %}
+                    </div>
+                  {% endfor %}
+                </div>
+              </div>
+              <div class="swiper-button-next d-none d-md-block"></div>
+              <div class="swiper-button-prev d-none d-md-block"></div>
+            </div>
+          </div>
+        {% endif %}
+      {% endwith %}
+    </div>
+  </main>
+{% endblock %}
+
+{% block js %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.4.1/swiper-bundle.min.js"></script>
+  <script src="{% static 'content/js/detail.js' %}"></script>
+  <script src="{% static 'content/js/vote.js' %}"></script>
+{% endblock %}

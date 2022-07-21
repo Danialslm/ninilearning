@@ -1,0 +1,53 @@
+{% extends 'dashboard/_base.html' %}
+{% load widget_tweaks %}
+
+{% block dashboard_content %}
+  <section class="p-2 p-md-3 rounded content-box subscription">
+    <div class="row justify-content-between">
+      {% if user.is_vip %}
+        <div class="status col-8">
+          <h5>وضعیت اشتراک</h5>
+          <span class="d-block d-sm-inline">فعال تا تاریخ :</span>
+          <span class="text-success">
+            {{ user.vip_left.days }}
+             روز مانده
+          </span>
+        </div>
+        <div class="col-4 text-end align-self-center">
+          <a href="{% url 'subscription:plans' %}" class="btn btn-primary">تمدید اشتراک</a></div>
+      {% else %}
+        <div class="status col-8">
+          <h5>وضعیت اشتراک</h5>
+          <span class="text-danger">شما اشتراک ندارید، برای تماشای فیلم‌ها اشتراک تهیه کنید.</span>
+        </div>
+        <div class="col-4 text-end align-self-center">
+          <a href="{% url 'subscription:plans' %}" class="btn btn-primary">خرید اشتراک</a>
+        </div>
+      {% endif %}
+    </div>
+  </section>
+  <div class="content-box p-2 p-md-3 rounded profile-form">
+    {% include 'includes/messages.html' with classes='text-center' %}
+    <form method="post">
+      {% csrf_token %}
+      <div class="input-group d-flex flex-column mb-3">
+        <label for="id_first_name" class="form-label">نام</label>
+        {{ form.first_name|add_class:'n-input' }}
+        {{ form.first_name.errors }}
+      </div>
+      <div class="input-group d-flex flex-column mb-3">
+        <label for="id_last_name" class="form-label">نام خانوادگی</label>
+        {{ form.last_name|add_class:'n-input' }}
+        {{ form.last_name.errors }}
+      </div>
+      <div class="input-group d-flex flex-column mb-3">
+        <label for="id_password" class="form-label">
+          گذرواژه
+          <a href="{% url 'dashboard:password_change' %}" class="text-decoration-none">ویرایش</a>
+        </label>
+        <input type="password" class="n-input" id="id_password" value="**********" disabled>
+      </div>
+      <button class="btn btn-primary w-100" type="submit">ذخیره</button>
+    </form>
+  </div>
+{% endblock %}

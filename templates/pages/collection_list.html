@@ -1,0 +1,26 @@
+{% load utils %}
+{% for collection in collections %}
+  <div class="collection mb-5 infinite-item">
+    <h3 class="mb-3">
+      <a href="{{ collection.get_absolute_url }}" class="text-decoration-none text-dark">
+        {{ collection.title }}
+      </a>
+    </h3>
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        {% for object in collection.contents.all|slice:':8' %}
+          <div class="swiper-slide">
+            {% include 'content/includes/item.html' with object=object %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endfor %}
+{% if collections.has_next or collections.has_next %}
+  {% if request.GET.page %}
+    <a class="infinite-more-link" href="{% url 'main:collections' %}?page={{ request.GET.page|add:'1' }}"></a>
+  {% else %}
+    <a class="infinite-more-link" href="{% url 'main:collections' %}?page=2"></a>
+  {% endif %}
+{% endif %}

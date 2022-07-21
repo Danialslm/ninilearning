@@ -1,0 +1,15 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block meta_title %}نینی لرنینگ{% endblock meta_title %}
+
+{% block css %}
+  <link rel="stylesheet" href="{% static 'global/css/header.css' %}">
+{% endblock %}
+
+{% block content %}
+  {% include 'includes/header.html' %}
+  <main id="main" class="space-from-header">
+    {% block page_content %}{% endblock %}
+  </main>
+{% endblock content %}

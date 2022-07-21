@@ -1,0 +1,38 @@
+{% extends 'registration/_base.html' %}
+{% load static widget_tweaks %}
+
+{% block meta_title %}ورود به حساب کاربری{% endblock %}
+
+{% block form %}
+  <form method="post" id="login-form">
+    {% csrf_token %}
+    <div class="input-group flex-column mb-3">
+      <label for="id_username" class="form-label">{{ form.username.label }}</label>
+      {% render_field form.username placeholder=form.username.label class='n-input' %}
+      {{ form.username.errors }}
+    </div>
+    <div class="input-group flex-column mb-3">
+      <label for="id_password" class="form-label">{{ form.password.label }}</label>
+      {% render_field form.password placeholder=form.password.label class='n-input' %}
+      {{ form.password.errors }}
+    </div>
+    <div class="row">
+      <div class="remember col-7">
+        <input type="checkbox" id="remember-me" class="me-1 align-middle">
+        <label for="remember-me">مرا به خاطر داشته باش</label>
+      </div>
+      <div class="col-5 d-grid gap-1">
+          <button type="submit" class="btn btn-primary">ورود</button>
+      </div>
+    </div>
+  </form>
+  <div class="form-links d-flex flex-column mt-2">
+    <a href="{% url 'users:password_reset' %}" class="mb-2">فراموشی گذرواژه</a>
+    <a href="{% url 'users:signup' %}">ثبت نام</a>
+  </div>
+{% endblock %}
+
+{% block js %}
+  <script src="{% static 'registration/js/login.js' %}"></script>
+{% endblock %}
+

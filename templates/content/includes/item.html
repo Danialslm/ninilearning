@@ -1,0 +1,31 @@
+<a href="{{ object.get_absolute_url }}" class="item d-block position-relative text-decoration-none text-white">
+  <div class="thumb-wrapper rounded-1 mb-3 position-relative">
+    <div class="thumb">
+      <img class="w-100 rounded-1" src="{{ object.small_poster.url }}" alt="{{ object.en_name }}">
+      <div class="overlay rounded-1 position-absolute"></div>
+    </div>
+    <div class="infos position-absolute">
+      <div class="badges mb-2">
+        <div class="badge d-inline-block popularity rounded-pill">
+            <span class="icon py-1 px-2 d-inline-block">
+              <i class="fas fa-thumbs-up"></i>
+            </span>
+          <span class="value py-1 px-2 d-inline-block" dir="ltr">{{ object.popularity }} %</span>
+        </div>
+      </div>
+      <div class="genres mb-2">
+        <span>{{ object.genres.all|join:' - ' }}</span>
+      </div>
+      <div class="extra">
+        {{ object.country }}
+        -
+        {{ object.resolution }}
+        {% if object.pe_subtitle or object_en_subtitle %}
+          -
+          زیرنویس دارد
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  <span class="d-block text-dark">{{ object.pe_name }}</span>
+</a>

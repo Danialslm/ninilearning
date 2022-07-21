@@ -1,0 +1,231 @@
+@import "/static/content/css/item.css";
+
+.container {
+    max-width: 1200px;
+}
+
+.content-header header {
+    background-image: var(--large-poster-url);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.content-header header .overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, .6);
+}
+
+.content-header .poster {
+    width: 150px;
+}
+
+.content-header .title .pe-name {
+    font-size: 1.2rem;
+}
+
+.content-header .title {
+    cursor: pointer;
+}
+
+.content-header .title i {
+    transition: .2s;
+}
+
+.content-header .popularity {
+    background-color: #1cb561;
+}
+
+.content-header .popularity .icon {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-top-right-radius: var(--bs-border-radius-pill);
+    border-bottom-right-radius: var(--bs-border-radius-pill);
+}
+
+.content-header .title .en-name,
+.content-header .popularity,
+.content-header .age-range,
+.content-header .director,
+.content-header .genres,
+.content-header .extra {
+    font-size: .87rem;
+}
+
+.content-header .actions .action {
+    display: inline-block;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    cursor: pointer;
+}
+
+
+.description .title {
+    font-size: 1.1rem;
+}
+
+.description p {
+    color: var(--bs-gray-700);
+}
+
+.season > a {
+    color: unset;
+}
+
+.season.selected-season {
+    background-color: var(--bs-cyan);
+}
+
+.season.selected-season > a {
+    color: #ffffff;
+}
+
+.episodes-container.loading-episodes {
+    filter: blur(2px);
+}
+
+.episodes-wrapper .loading {
+    position: absolute;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.episodes .title {
+    font-size: 1.2rem;
+}
+
+.episodes .seasons ul li:not(:last-child) {
+    padding-left: 1rem;
+}
+
+.episode {
+    background-color: #f5f5f5;
+}
+
+.episode-title h4 {
+    font-size: 1rem;
+}
+
+.episode-title .download,
+.episode-footer .download {
+    color: var(--bs-gray-500);
+    font-weight: normal;
+}
+
+.episode-poster .subtitle {
+    color: #ffffff;
+    bottom: 5px;
+    left: 5px;
+    font-size: .75rem;
+    padding: 0 5px;
+    background: #6d6e6fab;
+}
+
+.episode-description {
+    color: var(--bs-gray-700);
+    font-size: .9rem;
+}
+
+.episode-footer .btn:not(.btn-play) {
+    background: var(--bs-gray-300);
+    color: var(--bs-gray-500);
+}
+
+.episode-footer .btn:hover:not(.btn-play) {
+    border-color: var(--bs-gray-300);
+    background: var(--bs-gray-400);
+}
+
+.episode-popularity {
+    color: var(--bs-gray-500);
+}
+
+.episode-popularity span {
+    font-size: .8rem;
+}
+
+.episodes-count-wrapper > span {
+    background-color: #ffffff;
+    color: var(--bs-gray-700);
+}
+
+.episodes-count-wrapper:before {
+    content: '';
+    position: absolute;
+    display: block;
+    height: 1px;
+    width: 100%;
+    top: 50%;
+    z-index: -1;
+    background-color: var(--bs-gray-300);
+}
+
+.suggestions-title {
+    font-size: 1.1rem;
+}
+
+.content-header .actions .bookmarked i,
+.content-header .actions .liked i,
+.content-header .actions .disliked i,
+.episode-rating .liked,
+.episode-rating .disliked {
+    color: var(--bs-cyan) !important;
+}
+
+.suggestions .swiper-button-next,
+.suggestions .swiper-button-prev {
+    color: #000000;
+    background-color: rgba(255, 255, 255, .2);
+    width: 40px;
+    height: 40px;
+    border-radius: var(--bs-border-radius-pill);
+    text-align: center;
+}
+
+.suggestions .swiper-button-next {
+    right: -10px;
+}
+
+.suggestions .swiper-button-prev {
+    left: -10px;
+}
+
+.suggestions .swiper-button-next:after,
+.suggestions .swiper-button-prev:after {
+    font-size: 1.6rem;
+    line-height: unset;
+}
+
+.swal2-confirm {
+    visibility: hidden;
+}
+
+@media only screen and (min-width: 768px) {
+    .content-header .poster {
+        width: 100%;
+        max-width: 240px;
+    }
+
+    .actions .action {
+        border-radius: var(--bs-border-radius-pill);
+        font-size: 1rem;
+        transition: .2s;
+        background-color: rgba(255, 255, 255, .2);
+        padding: .5rem .7rem !important;
+        margin-left: .5rem;
+    }
+
+    .actions .action:hover {
+        background-color: rgba(255, 255, 255, .25);
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .episodes .episode-poster {
+        width: 20%;
+    }
+
+    .episodes .episode-info {
+        width: 80%;
+    }
+}

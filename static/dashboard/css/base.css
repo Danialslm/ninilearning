@@ -1,0 +1,26 @@
+.nav {
+    background-color: #fafafa;
+}
+
+.nav li {
+    flex-shrink: 0;
+}
+
+.nav li.active {
+    border-bottom: 3px solid var(--bs-cyan);
+}
+
+.nav a {
+    color: var(--bs-dark);
+}
+
+.content-box {
+    box-shadow: 0 0 10px #eeebeb;
+    margin-top: 1rem;
+    background-color: #fafafa;
+}
+
+.subscription .status h5 {
+    font-weight: bold;
+    font-size: 1rem;
+}

@@ -1,0 +1,28 @@
+<ul class="nav flex-nowrap overflow-auto rounded">
+  {% url 'dashboard:profile' as profile_url %}
+  {% url 'dashboard:devices' as devices_url %}
+  {% url 'dashboard:bookmarks' as bookmarked_url %}
+  {% url 'dashboard:password_change' as password_change_url %}
+
+  <li class="{% if profile_url == request.path|urlencode or password_change_url == request.path|urlencode %}active{% endif %}">
+    <a href="{{ profile_url }}"
+       class="text-decoration-none p-3 d-block">
+      <i class="fas fa-user-alt me-2"></i>
+      اطلاعات کاربری
+    </a>
+  </li>
+  <li class="{% if bookmarked_url == request.path|urlencode %}active{% endif %}">
+    <a href="{{ bookmarked_url }}"
+       class="text-decoration-none p-3 d-block">
+      <i class="fas fa-bookmark me-2"></i>
+      نشان شده‌ها
+    </a>
+  </li>
+  <li class="{% if devices_url == request.path|urlencode %}active{% endif %}">
+    <a href="{{ devices_url }}"
+       class="text-decoration-none p-3 d-block">
+      <i class="fas fa-desktop me-2"></i>
+      دستگاه ها
+    </a>
+  </li>
+</ul>

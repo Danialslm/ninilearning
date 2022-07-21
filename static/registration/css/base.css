@@ -1,0 +1,33 @@
+.form {
+    box-shadow: var(--bs-gray-300) 0 0 10px 0;
+    border-radius: 5px;
+}
+
+.input-group label {
+    color: var(--bs-gray-700);
+}
+
+.remember {
+    font-size: .9rem;
+}
+
+.errorlist {
+    color: var(--bs-danger);
+    font-size: .9rem;
+    list-style: none;
+    padding: .2rem;
+}
+
+.errorlist.nonfield {
+    padding: 0;
+}
+
+.form-links a {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--bs-gray-700);
+}
+
+.messages {
+    font-size: .9rem;
+}
